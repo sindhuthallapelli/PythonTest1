@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Reports - EduVoice</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Class Reports</h2>
+        <p>Select a class and branch to view detailed feedback:</p>
+
+        {% for class_name, branch in classes %}
+            <div class="report-box">
+                <h3>{{ class_name }} - {{ branch }}</h3>
+                <a href="/export_pdf/{{ class_name }}-{{ branch }}" class="btn">Export PDF</a>
+            </div>
+        {% else %}
+            <p>No feedback available yet.</p>
+        {% endfor %}
+
+        <a href="/teacher" class="btn back-btn">⬅ Back to Dashboard</a>
+    </div>
+</body>
+</html>
