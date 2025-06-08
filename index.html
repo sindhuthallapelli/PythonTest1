@@ -1,0 +1,96 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduVoice - Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <style>
+        /* static/css/index.css */
+
+/* General layout */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #83a4d4, #689c9f);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+}
+
+/* Centered container */
+.container {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Heading */
+h1 {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.highlight {
+    color: #4c8baf;
+}
+
+/* Subtitle */
+.subtitle {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Button group */
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4c8baf;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #3a6e8f;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to <span class="highlight">EduVoice</span></h1>
+        <p class="subtitle">Select your role to continue</p>
+
+        <div class="button-group">
+            <!-- Teacher Button -->
+            <form action="{{ url_for('teacher_login') }}" method="get">
+                <button type="submit" class="btn">Teacher</button>
+            </form>
+
+            <!-- Student Button -->
+            <form action="{{ url_for('student_login') }}" method="get">
+                <button type="submit" class="btn">Student</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
